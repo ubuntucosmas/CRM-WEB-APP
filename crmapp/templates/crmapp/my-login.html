@@ -1,0 +1,32 @@
+{% extends 'crmapp/base.html' %}
+
+{% load crispy_forms_tags %} 
+
+{% block content %}
+<body>
+    <div class="container bg-light shadow-md p-5 form-layout">
+        {% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS%}
+       <div class="alert alert-success bg-white" id="setTimeout" role="alert">
+         <h1 class="text-center">{{message}}👋</h1>
+       </div>
+       {% endif %}
+       {% endfor%}
+        <h1>Login to your account</h1>
+        <br>
+        <form method="POST" class="form-group">
+            {% csrf_token %}
+            {% comment %} {{ form|crispy }} {% endcomment %}
+            {{ form.username|as_crispy_field}}
+            <br>
+            {{ form.password|as_crispy_field}}
+            <br>
+            <button type="submit" class="btn btn-primary w-100 p-2 btn-block rounded-pill">Signin</button>
+        </form>    
+        <br>
+        <div class='text-center'>
+            <p>Don't have an account?</p><a href="{% url 'register' %}"> Register</a>
+        </div>
+    </div>
+</body> 
+{% endblock %}

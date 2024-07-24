@@ -1,0 +1,46 @@
+
+{% extends 'crmapp/base.html'%}
+
+{% block content %}
+
+<body>
+    {% if user.is_authenticated %}
+    <br>
+    <br>
+    <div class="text-center" >
+        <div class="container d-flex justify-content-center">
+            <div><h1>INFO<span>!</span>track</h1></div>
+            <div><h1>Info<strong>!</strong>track</h1></div>
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-border text-danger" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        <h3>Customer Relationship Management System</h3>
+        <hr>
+        {% else %}
+    <br>
+    <br>
+    <div class="text-center" >
+        <div class="container d-flex justify-content-center">
+            <div><h1>INFO<span>!</span>track</h1></div>
+            <div><h1>Info<strong>!</strong>track</h1></div>
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="spinner-border text-danger" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        <h3>Customer Relationship Management System</h3>
+        <hr>
+        <br>
+        
+        <a class= "btn btn-primary rounded-pill " type="button" href="{% url 'register' %}">&nbsp;<i class="fa fa-user-plus" aria-hidden="true"></i>Create Your Account</a>
+    </div>
+    {% endif %}
+</body>
+
+{% endblock %}
